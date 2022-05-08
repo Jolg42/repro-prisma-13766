@@ -1,0 +1,34 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+enum OrderStatus {
+  NEW
+  PICKED
+  STORED
+  DELIVERED
+}
+
+model Order {
+  orderId          Int                  @id @default(autoincrement())
+  statusMilestones OrderStatusHistory[]
+
+  @@index([orderId])
+}
+
+model OrderStatusHistory {
+  orderStatusHistoryId Int         @id @default(autoincrement())
+  orderId              Int
+  status               OrderStatus
+  createdAt            DateTime    @default(now())
+  order                Order       @relation(fields: [orderId], references: [orderId], onUpdate: Restrict, onDelete: Cascade)
+
+  @@index([orderId])
+}
