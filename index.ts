@@ -6,6 +6,7 @@ const prisma = new PrismaClient({
   errorFormat: "pretty",
 });
 
+// issue https://github.com/prisma/prisma/issues/13242
 async function main() {
   const result = await prisma.orderStatusHistory.create({
     data: {

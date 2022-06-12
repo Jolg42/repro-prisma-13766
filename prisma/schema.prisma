@@ -18,6 +18,7 @@ enum OrderStatus {
 
 model Order {
   orderId          Int                  @id @default(autoincrement())
+  paid             Boolean?
   statusMilestones OrderStatusHistory[]
 
   @@index([orderId])
