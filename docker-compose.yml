@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  vitess-test-8_0:
+    image: vitess/vttestserver:mysql80@sha256:9412e3d51bde38e09c3039090b5c68808e299579f12c79178a4ec316f7831889
+    restart: always
+    ports:
+      - 33807:33807
+    environment:
+      PORT: 33804
+      KEYSPACES: "test"
+      NUM_SHARDS: "1"
+      MYSQL_BIND_HOST: "0.0.0.0"
+      FOREIGN_KEY_MODE: "disallow"

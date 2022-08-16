@@ -1,6 +1,6 @@
 datasource db {
   provider             = "mysql"
-  url                  = env("DATABASE_URL")
+  url                  = "mysql://root:root@127.0.0.1:33807/repro_13766"
   referentialIntegrity = "prisma"
 }
 

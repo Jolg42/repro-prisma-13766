@@ -4,18 +4,17 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "push": "npx prisma db push",
-    "run": "npx ts-node index2.ts"
+    "run": "npx ts-node index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^3.15.1"
+    "@prisma/client": "dev"
   },
   "devDependencies": {
-    "prisma": "^3.15.1",
+    "prisma": "dev",
     "typescript": "^4.6.4"
   }
 }
